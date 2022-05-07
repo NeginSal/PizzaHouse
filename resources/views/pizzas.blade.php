@@ -18,13 +18,14 @@
 
         @foreach($pizzas as $pizza)
           <div>
-            {{ $loop->index }} - {{ $pizza['type'] }} - {{ $pizza['base'] }}
+            <!-- {{ $loop->index }} - {{ $pizza['type'] }} - {{ $pizza['base'] }}
             @if($loop->first)
               <span> - first in the loop</span>
             @endif
             @if($loop->last)
               <span> - last in the loop</span>
-            @endif
+            @endif -->
+            
           </div>
         @endforeach
 
