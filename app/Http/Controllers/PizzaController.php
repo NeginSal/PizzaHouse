@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Pizza;
+// use App\Models\Pizza;
+use App\Models\Pizza;
 
 class PizzaController extends Controller
 {
@@ -19,16 +20,20 @@ class PizzaController extends Controller
     // $pizzas=Pizza::orderBy('name')->get();
     // $pizzas=Pizza::orderBy('name','desc')->get();
     // $pizzas = Pizza::where('type', 'hawaiian')->get();
-    $pizzas = Pizza::latest()->get();      
+    // $pizzas = Pizza::latest()->get();      
 
-    return view('pizzas', [
+    $pizzas = Pizza::latest()->get();       
+
+    return view('pizzas.index', [
       'pizzas' => $pizzas,
     ]);
   }
-
   public function show($id) {
     // use the $id variable to query the db for a record
-    return view('details', ['id' => $id]);
+    return view('pizzas.show', ['id' => $id]);
+  }
+  public function create() {
+    return view('pizzas.create');
   }
 
 }
